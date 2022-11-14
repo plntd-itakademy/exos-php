@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(77, 77, 192);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  display: block;
+  padding: 12px 25px;
+  border-radius: 50px;
+  background-color: rgb(77, 77, 192);
+  color: white;
+  max-width: 230px;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+.btn:hover {
+  text-decoration: none;
+  background-color: rgb(51, 51, 133);
+}
+.btn.icon {
+  position: relative;
+  padding-left: 50px;
+}
+.btn.icon i {
+  position: absolute;
+  left: 22px;
+  top: 15px;
+}
+
+.container {
+  margin: 0 20px;
+}
+.container a:first-child {
+  margin: 20px 0;
+}
+.container .center {
+  margin: 0 auto;
+}
+.container .card {
+  max-width: 500px;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.container .card > ul {
+  padding-left: 25px;
+}
+.container .card > ul li:not(:last-child),
+.container .card > p:not(:last-child) {
+  margin-bottom: 15px;
+}
+.container .title {
+  color: rgb(77, 77, 192);
+  text-align: center;
+  margin-bottom: 20px;
+}
+.container .image-container {
+  height: 300px;
+  max-width: 500px;
+  box-shadow: rgba(99, 99, 99, 0.9) 0 0 10px 0px;
+}
+.container .image-container,
+.container .image-container img {
+  border-radius: 8px;
+}
+.container .image-container img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */
