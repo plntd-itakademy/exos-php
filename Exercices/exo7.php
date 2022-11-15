@@ -2,9 +2,14 @@
 require_once('Classes/User.php');
 $exerciceNumber = 7;
 
-$user1 = new User('Admin', 'administrator');
-$user2 = new User('Utilisateur 1', 'member');
-$user3 = new User('Utilisateur 2', 'manager');
+if (isset($_POST['username']) && isset($_POST['role'])) {
+  // Check if the role is a valid one
+  if (!in_array($_POST['role'], User::ROLES)) {
+    $message = 'Rôle invalide.';
+  } else {
+    $user = new User($_POST['username'], $_POST['role']);
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,7 +32,18 @@ $user3 = new User('Utilisateur 2', 'manager');
     </a>
     <h1 class="title">Exercice <?= $exerciceNumber ?></h1>
     <div class="card center">
-      <?= nl2br($text) ?>
+      <?php if (isset($message)) echo '<p class="error-message">' . $message . '</p>' ?>
+      <form action="" method="POST">
+        <input type="text" name="username" placeholder="Nom d'utilisateur" required />
+        <select name="role" required>
+          <option value="administrator">Administrateur</option>
+          <option value="member">Membre</option>
+          <option value="manager">Gestionnaire</option>
+          <option value="other">Autre</option>
+        </select>
+        <input class="btn" type="submit" value="Valider" />
+      </form>
+      <?php if (isset($user)) echo '<p>' . $user->get_welcome_message() . '</p>'; ?>
     </div>
   </div>
 </body>

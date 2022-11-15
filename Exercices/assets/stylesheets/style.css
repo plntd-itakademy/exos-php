@@ -19,6 +19,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.error-message {
+  color: #e74c3c;
+}
+
 table {
   width: 100%;
 }
@@ -34,8 +38,13 @@ table td {
   text-align: center;
 }
 
+input[type=submit],
 .btn {
   display: inline-block;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
   padding: 8px 25px;
   border-radius: 50px;
   background-color: rgb(77, 77, 192);
@@ -43,18 +52,37 @@ table td {
   text-align: center;
   transition: background-color 0.2s ease;
 }
+input[type=submit]:hover,
 .btn:hover {
   text-decoration: none;
   background-color: rgb(51, 51, 133);
 }
+input[type=submit].icon,
 .btn.icon {
   position: relative;
   padding-left: 45px;
 }
+input[type=submit].icon i,
 .btn.icon i {
   position: absolute;
   left: 18px;
   top: 11px;
+}
+
+input[type=text],
+select {
+  padding: 6px 14px;
+  border: 1px solid gainsboro;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+form {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
 }
 
 .container {

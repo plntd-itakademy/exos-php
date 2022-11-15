@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
 
 $primaryColor: rgb(77, 77, 192);
+$dangerColor: #e74c3c;
 $borderRadius: 8px;
 
 * {
@@ -23,6 +24,10 @@ a {
   }
 }
 
+.error-message {
+  color: $dangerColor;
+}
+
 table {
   width: 100%;
 
@@ -40,8 +45,13 @@ table {
   }
 }
 
+input[type="submit"],
 .btn {
   display: inline-block;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
   padding: 8px 25px;
   border-radius: 50px;
   background-color: $primaryColor;
@@ -64,6 +74,22 @@ table {
       top: 11px;
     }
   }
+}
+
+input[type="text"],
+select {
+  padding: 6px 14px;
+  border: 1px solid gainsboro;
+  border-radius: $borderRadius;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+form {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
 }
 
 .container {
