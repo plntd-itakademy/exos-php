@@ -23,13 +23,29 @@ a {
   }
 }
 
+table {
+  width: 100%;
+
+  &,
+  th,
+  td {
+    border-collapse: collapse;
+    border: 1px solid #c7c7c7;
+  }
+
+  th,
+  td {
+    padding: 4px;
+    text-align: center;
+  }
+}
+
 .btn {
-  display: block;
-  padding: 12px 25px;
+  display: inline-block;
+  padding: 8px 25px;
   border-radius: 50px;
   background-color: $primaryColor;
   color: white;
-  max-width: 230px;
   text-align: center;
   transition: background-color 0.2s ease;
 
@@ -40,12 +56,12 @@ a {
 
   &.icon {
     position: relative;
-    padding-left: 50px;
+    padding-left: 45px;
 
     i {
       position: absolute;
-      left: 22px;
-      top: 15px;
+      left: 18px;
+      top: 11px;
     }
   }
 }
@@ -62,13 +78,14 @@ a {
   }
 
   .card {
+    $padding: 25px;
     max-width: 500px;
-    padding: 25px;
+    padding: $padding;
     border-radius: $borderRadius;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
     > ul {
-      padding-left: 25px;
+      padding-left: $padding;
     }
 
     > ul li,
@@ -76,6 +93,10 @@ a {
       &:not(:last-child) {
         margin-bottom: 15px;
       }
+    }
+
+    > p:first-of-type:not(:first-child) {
+      margin-top: 15px;
     }
   }
 

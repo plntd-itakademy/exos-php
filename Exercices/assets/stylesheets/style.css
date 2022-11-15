@@ -19,13 +19,27 @@ a:hover {
   text-decoration: underline;
 }
 
+table {
+  width: 100%;
+}
+table,
+table th,
+table td {
+  border-collapse: collapse;
+  border: 1px solid #c7c7c7;
+}
+table th,
+table td {
+  padding: 4px;
+  text-align: center;
+}
+
 .btn {
-  display: block;
-  padding: 12px 25px;
+  display: inline-block;
+  padding: 8px 25px;
   border-radius: 50px;
   background-color: rgb(77, 77, 192);
   color: white;
-  max-width: 230px;
   text-align: center;
   transition: background-color 0.2s ease;
 }
@@ -35,12 +49,12 @@ a:hover {
 }
 .btn.icon {
   position: relative;
-  padding-left: 50px;
+  padding-left: 45px;
 }
 .btn.icon i {
   position: absolute;
-  left: 22px;
-  top: 15px;
+  left: 18px;
+  top: 11px;
 }
 
 .container {
@@ -64,6 +78,9 @@ a:hover {
 .container .card > ul li:not(:last-child),
 .container .card > p:not(:last-child) {
   margin-bottom: 15px;
+}
+.container .card > p:first-of-type:not(:first-child) {
+  margin-top: 15px;
 }
 .container .title {
   color: rgb(77, 77, 192);

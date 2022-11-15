@@ -1,7 +1,10 @@
 <?php
-$exerciceNumber = 2;
-$title = "Hello World!";
-$imageAlt = "Ville de nuit avec les fenêtres des bâtiments éclairées";
+require_once('Classes/User.php');
+$exerciceNumber = 7;
+
+$user1 = new User('Admin', 'administrator');
+$user2 = new User('Utilisateur 1', 'member');
+$user3 = new User('Utilisateur 2', 'manager');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -22,9 +25,9 @@ $imageAlt = "Ville de nuit avec les fenêtres des bâtiments éclairées";
       <i class="fa-solid fa-arrow-left"></i>
       <span>Retour au sommaire</span>
     </a>
-    <h1 class="title"><?= $title ?></h1>
-    <div class="image-container center">
-      <img src="assets/images/night_city.jpeg" alt="<?= $imageAlt ?>" />
+    <h1 class="title">Exercice <?= $exerciceNumber ?></h1>
+    <div class="card center">
+      <?= nl2br($text) ?>
     </div>
   </div>
 </body>

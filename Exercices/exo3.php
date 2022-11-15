@@ -3,15 +3,26 @@ $exerciceNumber = 3;
 $numberImages = [3, 8, 144, 152];
 define('IMAGES_PER_LINE', 3);
 
+/**
+ * Returns the number of images per images per lines
+ *
+ * @param int $numberOfImages
+ * @return int
+ */
 function getTotalLines(int $numberOfImages): int
 {
-  // Returns the number of images per images per lines we want
   return round($numberOfImages / IMAGES_PER_LINE);
 }
 
-function getLastLineNumberItems(int $numberOfImages): int
+/**
+ * Returns the remainder of the number of images per the number of lines
+ *
+ * @param  mixed $numberOfImages
+ * @return int
+ */
+function getNumberLastLineItems(int $numberOfImages): int
 {
-  // Returns the remainder of the number of images per the number of lines
+  // If there is 0 images on the last line, it's because there are only 1 line
   return $numberOfImages % IMAGES_PER_LINE === 0 ? IMAGES_PER_LINE : $numberOfImages % IMAGES_PER_LINE;
 }
 
@@ -33,14 +44,14 @@ function getLastLineNumberItems(int $numberOfImages): int
   <div class="container">
     <a href="../Exercices" class="btn icon">
       <i class="fa-solid fa-arrow-left"></i>
-      Retour au sommaire
+      <span>Retour au sommaire</span>
     </a>
     <h1 class="title">Exercice <?= $exerciceNumber ?></h1>
     <div class="card center">
       <ul>
         <?php foreach ($numberImages as $number) : ?>
           <li>
-            Pour <strong><?= $number ?> images</strong>, nous obtenons <strong><?= getTotalLines($number) ?> lignes</strong>.<br />La dernière ligne contient <strong><?= getLastLineNumberItems($number) ?> images</strong>.
+            Pour <strong><?= $number ?> images</strong>, nous obtenons <strong><?= getTotalLines($number) ?> lignes</strong>.<br />La dernière ligne contient <strong><?= getNumberLastLineItems($number) ?> images</strong>.
           </li>
         <?php endforeach ?>
       </ul>
