@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
+
+$primaryColor: rgb(77, 77, 192);
+$borderRadius: 8px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $primaryColor;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+input[type="submit"],
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 8px 25px;
+  border-radius: 50px;
+  background-color: $primaryColor;
+  color: white;
+  text-align: center;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    text-decoration: none;
+    background-color: rgb(51, 51, 133);
+  }
+
+  &.icon {
+    position: relative;
+    padding-left: 45px;
+
+    i {
+      position: absolute;
+      left: 18px;
+      top: 11px;
+    }
+  }
+}
+
+input[type="text"],
+select {
+  padding: 6px 14px;
+  border: 1px solid gainsboro;
+  border-radius: $borderRadius;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+form {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.container {
+  margin: 0 20px;
+
+  .center {
+    margin: 0 auto;
+  }
+
+  .users-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(auto, 300px));
+    grid-gap: 30px;
+    justify-content: center;
+  }
+
+  .card {
+    $padding: 25px;
+    max-width: 500px;
+    padding: $padding;
+    border-radius: $borderRadius;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    &.item {
+      max-width: unset;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      color: inherit;
+      text-align: center;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &.user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img.thumbnail {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    > ul {
+      padding-left: $padding;
+    }
+
+    > ul li,
+    > p {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
+
+    > p:first-of-type:not(:first-child) {
+      margin-top: 15px;
+    }
+  }
+
+  .title {
+    color: $primaryColor;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .image-container {
+    height: 300px;
+    max-width: 500px;
+    box-shadow: rgb(99 99 99 / 90%) 0 0 10px 0px;
+
+    &,
+    img {
+      border-radius: $borderRadius;
+    }
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
