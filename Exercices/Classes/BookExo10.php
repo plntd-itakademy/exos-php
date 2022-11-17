@@ -5,13 +5,6 @@ class Book
     private $title;
     private $author;
 
-    public function __construct($id, $title, $author)
-    {
-        $this->id = $id;
-        $this->title = $title;
-        $this->author = $author;
-    }
-
     /**
      * Get the ID of the book.
      *

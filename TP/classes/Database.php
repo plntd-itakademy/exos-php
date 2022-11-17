@@ -1,18 +1,17 @@
 <?php
 class Database
 {
-    public $connection;
-
     const USERNAME = 'root';
     const PASSWORD = 'root';
 
-    public function __construct()
+    static function Connect()
     {
-        $username = self::USERNAME;
-        $password = self::PASSWORD;
-
-        $this->connection = new PDO('mysql:host=localhost;dbname=tp', $username, $password, [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]);
+        try {
+            return new PDO('mysql:host=localhost;dbname=tp', self::USERNAME, self::PASSWORD, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]);
+        } catch (Exception $e) {
+            die('Erreur lors de la connexion à la base de données.');
+        }
     }
 }

@@ -84,6 +84,7 @@ input[type="submit"],
 }
 
 input[type="text"],
+input[type="tel"],
 select {
   padding: 6px 14px;
   border: 1px solid gainsboro;
@@ -136,9 +137,15 @@ form {
       cursor: pointer;
       color: inherit;
       text-align: center;
+      transition: transform 0.2s ease;
 
       &:hover {
         text-decoration: none;
+        transform: translateY(-5px);
+      }
+
+      > h2 {
+        margin-top: 10px;
       }
     }
 

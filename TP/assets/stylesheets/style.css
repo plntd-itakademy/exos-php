@@ -67,6 +67,7 @@ input[type=submit].icon i,
 }
 
 input[type=text],
+input[type=tel],
 select {
   padding: 6px 14px;
   border: 1px solid gainsboro;
@@ -118,9 +119,14 @@ form {
   cursor: pointer;
   color: inherit;
   text-align: center;
+  transition: transform 0.2s ease;
 }
 .container .card.item:hover {
   text-decoration: none;
+  transform: translateY(-5px);
+}
+.container .card.item > h2 {
+  margin-top: 10px;
 }
 .container .card.user {
   display: flex;

@@ -1,7 +1,24 @@
 <?php
-require_once('classes/Bank.php');
-$exerciceNumber = 4;
-$bank = new Bank();
+$exerciceNumber = 10;
+require_once('./Classes/BookExo10.php');
+
+try {
+  $database = new PDO('mysql:host=localhost;dbname=exo10', 'root', 'root', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+  ]);
+} catch (Exception $e) {
+  die('Erreur lors de la connexion à la base de données.');
+}
+
+$query = $database->query('SELECT * FROM book');
+$books = $query->fetchAll(PDO::FETCH_CLASS, 'Book');
+
+if (count($books) === 0) {
+  for ($i = 1; $i <= 10; $i++) {
+    $query = $database->prepare('INSERT INTO book (title, author) VALUES (?, ?)');
+    $query->execute(['Titre ' . $i, 'Auteur ' . $i]);
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,34 +43,20 @@ $bank = new Bank();
     <div class="card center">
       <table>
         <thead>
-          <tr>
-            <th>#</th>
-            <th>Montant</th>
-            <th>Type</th>
-          </tr>
+          <th>ID</th>
+          <th>Titre</th>
+          <th>Auteur</th>
         </thead>
         <tbody>
-          <?php foreach ($bank->transactions as $key => $transaction) : ?>
+          <?php foreach ($books as $book) : ?>
             <tr>
-              <td><?= $key + 1 ?></td>
-              <td><?= $bank->format_amount($transaction['amount']) ?></td>
-              <td><?= $transaction['type'] === 'deposit' ? 'Dépôt' : 'Retrait' ?></td>
+              <td><?= $book->getId() ?></td>
+              <td><?= $book->getTitle() ?></td>
+              <td><?= $book->getAuthor() ?></td>
             </tr>
           <?php endforeach ?>
         </tbody>
       </table>
-      <p>
-        <span>Le solde bancaire est de</span>
-        <strong><?= $bank->format_amount($bank->get_total_amount()) ?></strong>
-      </p>
-      <p>
-        <span>Le montant moyen des dépôts est de</span>
-        <strong><?= $bank->format_amount($bank->get_transactions_average('withdrawal')) ?></strong>
-      </p>
-      <p>
-        <span>Le montant moyen des retraits est de</span>
-        <strong><?= $bank->format_amount($bank->get_transactions_average('deposit')) ?></strong>
-      </p>
     </div>
   </div>
 </body>

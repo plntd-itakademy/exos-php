@@ -1,5 +1,5 @@
 <?php
-require_once('Classes/User.php');
+require_once('classes/User.php');
 $exerciceNumber = 7;
 
 if (isset($_POST['username']) && isset($_POST['role'])) {

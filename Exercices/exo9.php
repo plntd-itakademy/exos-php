@@ -1,8 +1,8 @@
 <?php
-require_once('Classes/Book.php');
+require_once('classes/Book.php');
 $exerciceNumber = 9;
 
-$book = new Book(1, 'Titre du livre');
+$book = new Book(1, 'Titre du livre', 'PL');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,6 +27,7 @@ $book = new Book(1, 'Titre du livre');
     <div class="card center">
       <p><strong>ID :</strong> <?= $book->getId() ?></p>
       <p><strong>Titre :</strong> <?= $book->getTitle() ?></p>
+      <p><strong>Auteur :</strong> <?= $book->getAuthor() ?></p>
     </div>
   </div>
 </body>

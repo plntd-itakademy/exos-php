@@ -1,11 +1,11 @@
 <?php
-// Redirect the user if there is not requested ID
+// Redirect the user if the requested ID is invalid
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header('Location: users.php');
     exit;
 }
 
-require_once('Model/user.php');
+require_once('models/UserModel.php');
 $userModel = new UserModel;
 $user = $userModel->getUserById($_GET['id']);
 

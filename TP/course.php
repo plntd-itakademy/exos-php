@@ -1,11 +1,11 @@
 <?php
-// Redirect the user if there is not requested ID
+// Redirect the user if the requested ID is invalid
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header('Location: courses.php');
     exit;
 }
 
-require_once('Model/course.php');
+require_once('models/CourseModel.php');
 $courseModel = new CourseModel;
 $course = $courseModel->getCourseById($_GET['id']);
 

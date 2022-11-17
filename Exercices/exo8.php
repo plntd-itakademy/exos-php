@@ -1,5 +1,5 @@
 <?php
-require_once('Classes/Professor.php');
+require_once('classes/Professor.php');
 $exerciceNumber = 8;
 
 if (isset($_POST['name']) && isset($_POST['courseName'])) {

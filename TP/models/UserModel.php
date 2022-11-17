@@ -1,13 +1,12 @@
 <?php
-require_once('Classes/User.php');
+require_once('classes/User.php');
 
 class UserModel
 {
     public function __construct()
     {
-        require_once('Classes/Database.php');
-        $this->database = new Database;
-        $this->database = $this->database->connection;
+        require_once('classes/Database.php');
+        $this->database = Database::Connect();
     }
 
     /**

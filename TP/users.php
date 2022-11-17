@@ -1,7 +1,7 @@
 <?php
 $title = 'Utilisateurs';
 require_once('includes/header.php');
-require_once('Model/user.php');
+require_once('models/UserModel.php');
 
 // Get all users to loop
 $userModel = new UserModel;

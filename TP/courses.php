@@ -1,7 +1,7 @@
 <?php
 $title = 'Cours';
 require_once('includes/header.php');
-require_once('Model/course.php');
+require_once('models/CourseModel.php');
 
 // Get all courses to loop
 $courseModel = new CourseModel;
