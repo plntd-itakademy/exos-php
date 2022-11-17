@@ -1,14 +1,14 @@
 <?php
 $title = 'Cours';
 require_once('includes/header.php');
-require_once('includes/database.php');
-require_once('classes/Course.php');
+require_once('Model/course.php');
 
-$query = $database->query('SELECT * FROM course');
-$courses = $query->fetchAll(PDO::FETCH_CLASS, 'Course');
+// Get all courses to loop
+$courseModel = new CourseModel;
+$courses = $courseModel->getCourses();
 ?>
 <h1 class="title"><?= $title ?></h1>
-<div class="users-container">
+<div class="items-container">
     <?php foreach ($courses as $course) : ?>
         <a href="course.php?id=<?= $course->id ?>" class="card item">
             <img class="thumbnail" src="<?= $course->getThumbnailPath() ?>" alt="Photo du cours">

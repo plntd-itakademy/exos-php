@@ -1,14 +1,14 @@
 <?php
 $title = 'Utilisateurs';
 require_once('includes/header.php');
-require_once('includes/database.php');
-require_once('classes/User.php');
+require_once('Model/user.php');
 
-$query = $database->query('SELECT id, first_name, last_name, role, thumbnail_url FROM user');
-$users = $query->fetchAll(PDO::FETCH_CLASS, 'User');
+// Get all users to loop
+$userModel = new UserModel;
+$users = $userModel->getUsers();
 ?>
 <h1 class="title"><?= $title ?></h1>
-<div class="users-container">
+<div class="items-container">
     <?php for ($i = 1; $i <= count($users); $i++) : ?>
         <a href="user.php?id=<?= $users[$i - 1]->id ?>" class="card item">
             <img class="thumbnail" src="<?= $users[$i - 1]->getThumbnailPath() ?>" alt="Photo de l'utilisateur">

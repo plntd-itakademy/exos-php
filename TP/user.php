@@ -1,20 +1,17 @@
 <?php
+// Redirect the user if there is not requested ID
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header('Location: users.php');
     exit;
 }
 
-require_once('includes/database.php');
-require_once('classes/User.php');
+require_once('Model/user.php');
+$userModel = new UserModel;
+$user = $userModel->getUserById($_GET['id']);
 
-$query = $database->prepare('SELECT * FROM user WHERE id = ?');
-$query->execute([$_GET['id']]);
-$user = $query->fetchAll(PDO::FETCH_CLASS, 'User');
-
-if (count($user) > 0) {
-    $user = $user[0];
-} else {
-    header('Location: users.php');
+// Redirect the user if there is no user found
+if (!$user) {
+    header('Location: courses.php');
     exit;
 }
 

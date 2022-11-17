@@ -1,19 +1,16 @@
 <?php
+// Redirect the user if there is not requested ID
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header('Location: courses.php');
     exit;
 }
 
-require_once('includes/database.php');
-require_once('classes/Course.php');
+require_once('Model/course.php');
+$courseModel = new CourseModel;
+$course = $courseModel->getCourseById($_GET['id']);
 
-$query = $database->prepare('SELECT * FROM user INNER JOIN course ON user.id = course.user_id WHERE course.id = ?');
-$query->execute([$_GET['id']]);
-$course = $query->fetchAll(PDO::FETCH_CLASS, 'Course');
-
-if (count($course) > 0) {
-    $course = $course[0];
-} else {
+// Redirect the user if there is no course found
+if (!$course) {
     header('Location: courses.php');
     exit;
 }
